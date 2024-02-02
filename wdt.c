@@ -3,12 +3,9 @@
 
 void wdt_feeder(wdt_t *wdt)
 {
-    while (!wdt->device)
-    {
-        k_msleep(10);
-    }
+    WAIT_FOR(wdt->device);
 
-    while (1)
+    while (true)
     {
         wdt_feed(wdt->device, wdt->channel);
         k_msleep(wdt->timeout_cfg->window.max / 2);
