@@ -3,7 +3,7 @@
 
 void wdt_feeder(wdt_t *wdt)
 {
-    WAIT_FOR(wdt->device);
+    X_WAIT_FOR(wdt->device);
 
     while (true)
     {
